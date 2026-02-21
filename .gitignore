@@ -1,8 +1,9 @@
+
 # OSX
 #
 App.tsx
 android/
-
+ios/
 .DS_Store
 
 # Xcode

@@ -1,5 +1,8 @@
 # OSX
 #
+App.tsx
+android/
+
 .DS_Store
 
 # Xcode

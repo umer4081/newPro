@@ -9,6 +9,7 @@ const test = () => {
         accounytCity = 'Kashmir'
     accounId = 12 // now node js will anylasie this and give us output
     console.log(accounId, 'accounIdaccounId')
+    // console.log('2' > 1) // Operator '>' cannot be applied to type/s 'string' and 'number'.ts(2365)
   return (
     <View>
           <Text>{ 'Test is my code upload on git or not '}</Text>

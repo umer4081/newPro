@@ -1,296 +1,305 @@
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useEffect } from 'react';
-import { getOwnerDocument } from 'react-native/types_generated/src/private/webapis/dom/nodes/internals/NodeInternals';
-// import { Value } from 'react-native/types_generated/Libraries/Animated/AnimatedExports';
 
-//-========reverse Arrays
+/**
+ * --------------------------------
+ * REVERSE STRING AND COUNT CHARACTERS
+ * --------------------------------
+ */
 
-
-let arrw = 'umer majeed';
-
+const textValue = 'umer majeed';
 
 function reverseAndCountChars() {
-  let result = '';
-  let charCount: any = {}; // object to store character counts
 
-  // Loop from the last character to the first
-  for (let i = arrw.length - 1; i >= 0; i--) {
-    const char = arrw[i];
-    result += char;
+  let reversed = '';
+  let charCount = {};
+
+  for (let i = textValue.length - 1; i >= 0; i--) {
+
+    const char = textValue[i];
+
+    reversed += char;
 
     if (charCount[char]) {
       charCount[char] += 1;
-
     } else {
       charCount[char] = 1;
-
-
     }
+
   }
 
-  console.log(result, 'Reversed string');
-  console.log(charCount, 'Character counts');
+  console.log('reverseAndCountChars_reversed:', reversed);
+  console.log('reverseAndCountChars_counts:', charCount);
 
-  return { reversed: result, counts: charCount };
+  return { reversed, charCount };
 }
 
 
+/**
+ * --------------------------------
+ * REVERSE ARRAY
+ * --------------------------------
+ */
 
-let arr = [1, 2, 3, 4];
+const numbersArray = [1, 2, 3, 4];
+
 function reverseArray() {
-  reverseAndCountChars()
-  let result = [];
 
-  for (let i = arr.length - 1; i >= 0; i--) {
-    result.push(arr[i]);
-  }
-  // console.log(result, 'resultresult')
+  reverseAndCountChars();
 
-  // return result;
-}
+  const result = [];
 
-
-// reverseArray();
-// Output: [4, 3, 2, 1]
-
-// Q) find largest number in the array
-
-
-
-function findMaxMin() {
-  let largArr = [10, 45, 2, 99, 23];
-  let max = largArr[0];
-  let min = largArr[0];
-
-  for (let i = 1; i < largArr.length; i++) {
-
-    //     Iteration 1
-    //        i = 1
-    //        largArr[i] = 45
-
-    // max Value===========================
-    // 45 > 10  ✅
-    // max = 45
-
-    // max Value==============================
-    // 45 > 10  ✅
-    // max = 45
-
-    // Iteration 222222222222222222222222
-    //     Iteration 2
-    // /i = 2
-    // largArr[i] = 2
-
-    // maxx valueeee==================
-    // 2 > 45 ❌
-    // max stays 45
-
-
-
-    // Iteration 333333333===================
-    //     Iteration 33333333
-    // i = 3
-    // largArr[i] = 99
-
-
-    // maxx valueeee==================
-    // 99 > 45 ✅
-    // max = 99
-
-
-
-    // Iteration 44444444444===================
-    //     Iteration 444444444444
-    // i = 4
-    // largArr[i] = 23
-    //
-
-
-    // maxx valueeee==================
-    //     23 > 99 ❌
-    // max stays 99
-
-
-
-
-
-
-    if (largArr[i] > max) {
-
-      max = largArr[i]
-    };
-    if (largArr[i] < min) {
-      // iteratinn 111111111
-
-      //  Min check
-      // 45 < 10 ❌
-      // min stays 10
-
-      // iteratinn 22222222
-      // 2 < 10 ✅
-      // min = 2
-      //
-
-      // iteratinn 2333333333333
-      //       99 < 2 ❌
-      // min stays 2
-
-
-      // iteratinn 444444444
-      // 23 < 2 ❌
-      // min stays 2
-
-
-      min = largArr[i];
-
-    }
-    // final resultt
-    //     max = 99
-    // min = 2
+  for (let i = numbersArray.length - 1; i >= 0; i--) {
+    result.push(numbersArray[i]);
   }
 
-  // itteration 1 current values 
-  // max = 45
-  // min = 10
-  // itteration 222222 current values
-  //   max = 45
-  // min = 2
+  console.log('reverseArray_result:', result);
 
-  console.log(max, 'maxmaxmaxmaxmaxmaxmax')
-  console.log(min, 'minminminminminminminmi')
-}
-
-
-
-
-
-// 6. Find common elements between two arrays (using for loop)
-let arr1 = [1, 2, 3, 4];
-let arr2 = [3, 4, 5, 6];
-
-function commonElements() {
-  // oneElement
-  let result = [];
-  for (let i = 0; i < arr1.length; i++) {
-
-    for (let j = 0; j < arr2.length; j++) {
-
-      if (arr1[i] !== arr2[j]) {
-        result.push(arr1[i]);
-        console.log(result, 'resultresultresult')
-        break; // avoid duplicates
-      }
-    }
-  }
   return result;
 }
-// 6. Find common elements between Onee arrays (using for loop)
-let onearr = [1, 2, 3, 4, 2, 22, 33, 4, 1];
 
 
-function oneElement() {
-  let result: any = [];
-  for (let i = 0; i < onearr.length; i++) {
-    for (let j = i + 1; j < onearr.length; j++) {
+/**
+ * --------------------------------
+ * FIND MAX AND MIN VALUE IN ARRAY
+ * --------------------------------
+ */
 
-      if (onearr[i] === onearr[j]) {
-        result.push(onearr[i]);
+function findMaxMin() {
+
+  const arrayValues = [10, 45, 2, 99, 23];
+
+  let max = arrayValues[0];
+  let min = arrayValues[0];
+
+  for (let i = 1; i < arrayValues.length; i++) {
+
+    if (arrayValues[i] > max) {
+      max = arrayValues[i];
+    }
+
+    if (arrayValues[i] < min) {
+      min = arrayValues[i];
+    }
+
+  }
+
+  console.log('findMaxMin_max:', max);
+  console.log('findMaxMin_min:', min);
+}
+
+
+
+/**
+ * --------------------------------
+ * FIND COMMON ELEMENTS BETWEEN TWO ARRAYS
+ * --------------------------------
+ */
+
+const arrayOne = [1, 2, 3, 4];
+const arrayTwo = [3, 4, 5, 6];
+
+function findCommonElements() {
+
+  const result = [];
+
+  for (let i = 0; i < arrayOne.length; i++) {
+
+    for (let j = 0; j < arrayTwo.length; j++) {
+
+      if (arrayOne[i] === arrayTwo[j]) {
+
+        result.push(arrayOne[i]);
+        break;
+
       }
 
     }
+
   }
 
-  console.log(result, 'repeated elements');
+  console.log('findCommonElements:', result);
+
+  return result;
 }
 
 
-// fint common elemeni in array
 
+/**
+ * --------------------------------
+ * FIND DUPLICATE ELEMENTS IN ONE ARRAY
+ * --------------------------------
+ */
 
-// console.log(commonElements(arr1, arr2)); // [3, 4]
+const duplicateArray = [1, 2, 3, 4, 2, 22, 33, 4, 1];
 
-const numbers = [1, 2, 3, 4, 5];
+function findDuplicateElements() {
 
-const callNUm = () => {
-  for (let i = 0; i < numbers.length; i++) {
+  const result = [];
 
-    console.log(numbers[i] * 2, 'ooooooo')
+  for (let i = 0; i < duplicateArray.length; i++) {
+
+    for (let j = i + 1; j < duplicateArray.length; j++) {
+
+      if (duplicateArray[i] === duplicateArray[j]) {
+
+        result.push(duplicateArray[i]);
+
+      }
+
+    }
+
   }
+
+  console.log('findDuplicateElements:', result);
 
 }
-console.log('jj')
 
 
-// i wan to multiple those number whome grater then 4
-const checkarr = [2, 3, 4, 5, 6, 7, 8, 9]
-const multiple: any = []
 
-const checkKK = () => {
-  for (let i = 0; i < checkarr.length; i++) {
-    if (checkarr[i] > 4) {
-      multiple.push(checkarr[i] * 2)
-      console.log(multiple, 'multiplemultiple')
-    }
-  }
-  const start = 5
-  for (let i = 0; i <= start; i++) {
-    let reslt = ''
-    for (let j = 1; j <= i; j++) {
-      reslt += '*'
-    }
-    console.log(reslt)
+/**
+ * --------------------------------
+ * MULTIPLY ARRAY NUMBERS
+ * --------------------------------
+ */
+
+const simpleNumbers = [1, 2, 3, 4, 5];
+
+const multiplyNumbers = () => {
+
+  for (let i = 0; i < simpleNumbers.length; i++) {
+
+    console.log('multiplyNumbers:', simpleNumbers[i] * 2);
+
   }
 
-  let n = 5;
+};
+
+
+
+/**
+ * --------------------------------
+ * MULTIPLY NUMBERS GREATER THAN 4
+ * --------------------------------
+ */
+
+const checkArray = [2, 3, 4, 5, 6, 7, 8, 9];
+
+const multiplyGreaterThanFour = () => {
+
+  const result = [];
+
+  for (let i = 0; i < checkArray.length; i++) {
+
+    if (checkArray[i] > 4) {
+
+      result.push(checkArray[i] * 2);
+
+    }
+
+  }
+
+  console.log('multiplyGreaterThanFour:', result);
+
+};
+
+
+
+/**
+ * --------------------------------
+ * STAR PATTERN
+ * --------------------------------
+ */
+
+const printStarPattern = () => {
+
+  const n = 5;
 
   for (let i = 1; i <= n; i++) {
-    let row = "";
 
-    // spaces
+    let row = '';
+
     for (let s = 1; s <= n - i; s++) {
-      row += " ";
+      row += ' ';
     }
 
-    // stars
     for (let j = 1; j <= i; j++) {
-      row += "*";
+      row += '*';
     }
 
-  console.log(row);
-}
+    console.log(row);
+
+  }
+
+};
 
 
-}
+
+/**
+ * --------------------------------
+ * BUTTON ACTION
+ * --------------------------------
+ */
+
+const handlePress = () => {
+
+  reverseArray();
+  findMaxMin();
+  findCommonElements();
+  findDuplicateElements();
+  multiplyNumbers();
+  multiplyGreaterThanFour();
+  printStarPattern();
+
+};
 
 
 
+/**
+ * --------------------------------
+ * APP COMPONENT
+ * --------------------------------
+ */
 
 const App = () => {
+
   return (
-    <View style={{ flex: 1, backgroundColor: 'red' }}>
+
+    <View style={styles.container}>
+
       <TouchableOpacity
-        // onPress={reverseArray}
-        // onPress={findMaxMin}
-        // onPress={commonElements}
-        // onPress={oneElement}
-        // onPress={getArray}
-        // onPress={callNUm}
-        onPress={checkKK}
-        style={{
-          flex: 1,
-          backgroundColor: 'green',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderWidth: 3,
-          padding: 12,
-        }}
+        onPress={handlePress}
+        style={styles.button}
       >
-        <Text>App</Text>
+
+        <Text>Run Algorithms</Text>
+
       </TouchableOpacity>
+
     </View>
+
   );
+
 };
 
 export default App;
 
-const styles = StyleSheet.create({});
+
+
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+
+  button: {
+    flex: 1,
+    backgroundColor: 'green',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 3,
+    padding: 12,
+  },
+
+});

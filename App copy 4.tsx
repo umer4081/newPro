@@ -1,123 +1,184 @@
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
-import { store } from './Sorce/Redux';
-import Routes from './Sorce/routes';
 import { LogBox } from 'react-native';
 
+import { store } from './Sorce/Redux';
+import Routes from './Sorce/routes';
+
 const App = () => {
+
+  /**
+   * --------------------------------
+   * HIDE WARNINGS
+   * --------------------------------
+   */
+
   useEffect(() => {
-    // Hide all warnings
     LogBox.ignoreAllLogs(true);
   }, []);
 
-  //=========investigation start we do here
-  const accounId = 144553; //rendom number
-  let accounEmail = 'eemail@gmail.com';
-  var accoundPass = '12345',
-    accounytCity = 'Kashmir'; //we cnat do this but this is not a good way
-  // so make sure never do this
-  // accounId = 12 // nnot allowed
-  accounEmail = 'chnageema@gmail.com'; // easily chnage
-  accoundPass = '3333333'; //also chnage
-  accounytCity = 'Delhi'; // chnaged
-  // console.log(accounEmail, 'accounEmailaccounEmail');
-  // console.log(accoundPass, 'accoundPassaccoundPass');
-  // console.log(accounytCity, 'accounytCity'); // it will give us error
-  // git push -u origin branch-name
-  /*perfer not to use var
-  because of issue and block scope and function scope
-  */
 
-  // Data types in Java Script
-  //use strict : Treate all JS code as newer version
-  // code readbility should be high priorty
+  /**
+   * --------------------------------
+   * VARIABLES EXAMPLE
+   * --------------------------------
+   */
 
-  //ECMA script
+  const accountId = 144553; // constant value
 
-  //Datatype and ECMA Standard
-  // "use strict" // treate all js code as newer version
-  //Alert
+  let accountEmail = 'email@gmail.com';
+  let accountPassword = '12345';
+  let accountCity = 'Kashmir';
 
-  // ===================================java script operations==========================
+  // updating values
+  accountEmail = 'changeemail@gmail.com';
+  accountPassword = '3333333';
+  accountCity = 'Delhi';
+
+  console.log('accountEmail:', accountEmail);
+  console.log('accountPassword:', accountPassword);
+  console.log('accountCity:', accountCity);
+
+
+  /**
+   * --------------------------------
+   * JAVASCRIPT OPERATORS
+   * --------------------------------
+   */
+
   let value = 3;
-  let negValue = -value;
-  // console.log(negValue, '====='); // -3 result
+  let negativeValue = -value;
 
-  // console.log(2 + 2)
-  // console.log(2 - 2)
-  // console.log(2 * 2)
-  // console.log(2 ** 3)
-  // console.log(8 / 2) //4
-  // console.log(2 % 3) //2
+  console.log('negativeValue:', negativeValue);
 
-  let str1 = 'helllo';
-  let str2 = ' umer';
-  let str3 = str1 + str2;
-  // console.log(str3, 'str3str3'); // hello Umer
+  console.log('addition:', 2 + 2);
+  console.log('subtraction:', 2 - 2);
+  console.log('multiplication:', 2 * 2);
+  console.log('power:', 2 ** 3);
+  console.log('division:', 8 / 2);
+  console.log('modulus:', 2 % 3);
 
-  //===========soem conversions eg here=========
-  // console.log('1' + 2 + 2); // 122
-  // console.log(1 + 2 + '2'); // 32
 
-  // console.log(+true); //1 not good way to write this type of code
-  // console.log(true+) not allowed
+  /**
+   * --------------------------------
+   * STRING CONCATENATION
+   * --------------------------------
+   */
 
-  //========prefix and postfix=======
+  let firstName = 'hello';
+  let lastName = ' umer';
+
+  let fullName = firstName + lastName;
+
+  console.log('fullName:', fullName);
+
+
+  /**
+   * --------------------------------
+   * TYPE CONVERSIONS
+   * --------------------------------
+   */
+
+  console.log('stringNumberExample1:', '1' + 2 + 2);
+  console.log('stringNumberExample2:', 1 + 2 + '2');
+
+
+  /**
+   * --------------------------------
+   * PREFIX AND POSTFIX OPERATORS
+   * --------------------------------
+   */
+
   let x = 3;
   const y = x++;
 
-  // console.log(`x:${x}, y:${y}`);
-  // Expected output: "x:4, y:3"
+  console.log(`postfixExample x:${x}, y:${y}`);
 
   let a = 3;
   const b = ++a;
 
-  // console.log(`a:${a}, b:${b}`);
-  // Expected output: "a:4, b:4"
-
-  //==============comparsions operators=============
-  // console.log(2 > 1); // true
-  // console.log(2 >= 1); // true
-
-  // console.log(2 < 1); // false
-  // console.log(2 <= 1); // false
-
-  // console.log(2 != 2); // false
-  // console.log(2 == 2); //true
-
-  //=======================primitive data types============================
-  // NN SS BB U  7types of data types ==> thease are basicall call by value
-
-  //========================NON PRIMITIVE or REFERANCE type==================
-  // JavaScript is a dynamically typed language.
-  // ✅ You can change the type of a variable after it has been declared
-  // Arrays ,
-  //  OBJECTS ,
-  // FUNCTIONS //  it data type is always objet functions
-
-  //==========Stack and Heap memory in java Script===============
-  // NON PRIMITIVE  goes inside heap memory ==> provide us Referances
-  // PRIMITIVE goes inside Stack => provide us copy
-
-  //=============== DATE and Time in java script==============
-
-  let mydate = new Date(); //it is a object in java script
-  console.log(mydate.getDate())
-    console.log(mydate.getDay()+1)
-  console.log(mydate.getFullYear())
-      console.log(mydate.getMonth())
+  console.log(`prefixExample a:${a}, b:${b}`);
 
 
-  // console.log(mydate.toDateString(), 'mydatemydate');
-  // console.log(mydate.toString(), 'toStringtoString');
-  // console.log(mydate.toISOString(), 'toISOStringtoISOString');
+  /**
+   * --------------------------------
+   * COMPARISON OPERATORS
+   * --------------------------------
+   */
 
-  // console.log(mydate.toJSON(), 'toJSONtoJSONtoJSON');
+  console.log('greaterThan:', 2 > 1);
+  console.log('greaterEqual:', 2 >= 1);
 
-  return 0;
-  // <Provider store={store}>
-  //   <Routes />
-  // </Provider>
+  console.log('lessThan:', 2 < 1);
+  console.log('lessEqual:', 2 <= 1);
+
+  console.log('notEqual:', 2 != 2);
+  console.log('equal:', 2 == 2);
+
+
+  /**
+   * --------------------------------
+   * DATA TYPES
+   * --------------------------------
+   * Primitive Types:
+   * Number
+   * String
+   * Boolean
+   * Null
+   * Undefined
+   * Symbol
+   * BigInt
+   *
+   * Non Primitive Types:
+   * Array
+   * Object
+   * Function
+   */
+
+
+  /**
+   * --------------------------------
+   * MEMORY TYPES
+   * --------------------------------
+   *
+   * Stack Memory
+   * Used for primitive data types
+   * Stores copy of the value
+   *
+   * Heap Memory
+   * Used for non-primitive data types
+   * Stores reference
+   */
+
+
+  /**
+   * --------------------------------
+   * DATE AND TIME
+   * --------------------------------
+   */
+
+  const currentDate = new Date();
+
+  console.log('currentDate:', currentDate);
+  console.log('dayOfMonth:', currentDate.getDate());
+  console.log('dayOfWeek:', currentDate.getDay() + 1);
+  console.log('year:', currentDate.getFullYear());
+  console.log('month:', currentDate.getMonth());
+
+
+
+  /**
+   * --------------------------------
+   * UI
+   * --------------------------------
+   */
+
+  return (
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  );
+
 };
 
 export default App;
